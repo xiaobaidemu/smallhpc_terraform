@@ -1,0 +1,38 @@
+{
+  "variables": {
+    "access_key": "xxxxxxxxxxxx",
+    "secret_key": "xxxxxxxxxxxxxxxxxxxxx"
+  },
+  "builders": [{
+    "type":"alicloud-ecs",
+    "access_key":"{{user `access_key`}}",
+    "secret_key":"{{user `secret_key`}}",
+    "region":"cn-beijing",
+    "image_name":"small_hpc_image",
+    "source_image":"centos_7_04_64_20G_alibase_201701015.vhd",
+    "instance_name":"base_hpc_instance",
+    "vpc_id":"xxxxxxxxxxxxxxxx",
+    "vswitch_id":"xxxxxxxxxxxxxxx",
+    "security_group_id":"xxxxxxxxxxxxxxxxx",
+    "ssh_username":"root",
+    "instance_type":"ecs.t5-lc1m2.small",
+    "internet_max_bandwidth_out":"1",
+    "io_optimized":"true",
+    "image_force_delete":"true",
+    "internet_charge_type":"PayByTraffic",
+    "ssh_password":"xxxxxxxxxxxxx"
+  }],
+  "provisioners": [{
+    "type": "file",
+    "source": "ImageScript.sh",
+    "destination": "/tmp/"
+   },{
+    "type": "shell",
+    "inline": [
+      "sleep 30s",
+	  "cd /tmp",
+      "chmod 755 ImageScript.sh",
+	  "./ImageScript.sh > log"
+    ]
+  }]
+}

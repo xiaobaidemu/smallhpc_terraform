@@ -1,0 +1,11 @@
+variable "access_key" { default = "xxxxxxxxx"}
+variable "secret_key" { default  = "xxxxxxxxxxxxxxxxx"}
+variable "region" {  default = "cn-beijing"}
+variable "node-cnt" {default = "3"}
+variable "instance_type" {default = "ecs.t5-lc1m1.small"}
+variable "base_nstance_name" {default = "hpc_instance_nfs_server"}
+variable "zoneid" {default = "cn-beijing-f"}
+variable "cidr_block" {default = "172.16.0.0/21"}
+variable "password" {default = "xxxxxxxxxxx"}
+variable "internet_charge_type" { default = "PayByTraffic"}
+variable "node_count" {default = "3"}

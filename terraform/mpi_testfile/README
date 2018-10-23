@@ -1,0 +1,4 @@
+运行方式：
+1.编译mpi_helloworld.c：mpicc mpi_helloworld.c -o mpi_helloworld
+2.在当前目录下，mpi方式运行：mpirun -hostfile hostfile -np 4 --allow-run-as-root ./mpi_helloworld
+注意：保证mpi_helloworld所处位置为共享目录
